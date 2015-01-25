@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Imagename:</b>
+  <%= @upload_pic.imagename %>
+</p>
+
+<p>
+  <b>Picture:</b>
+  <%= image_tag @upload_pic.avatar.url %>
+</p>
+
+
+<%= link_to 'Edit', edit_upload_pic_path(@upload_pic) %> |
+<%= link_to 'Back', upload_pics_path %>

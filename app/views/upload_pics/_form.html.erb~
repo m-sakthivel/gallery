@@ -1,0 +1,32 @@
+<%= form_for(@upload_pic, :html =>{:multipart => true}) do |f| %>
+  <% if @upload_pic.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@upload_pic.errors.count, "error") %> prohibited this upload_pic from being saved:</h2>
+
+      <ul>
+      <% @upload_pic.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :imagename %><br />
+    <%= f.text_field :imagename %>
+  </div>
+
+ <div class="field">
+    <%= f.label :avatar %><br />
+    <%= f.file_field :avatar %>
+  </div>
+
+<div class="field">
+    <%= f.label :is_private %><br />
+    <%= f.checkbox :is_private %>
+  </div>
+ 
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

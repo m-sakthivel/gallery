@@ -1,0 +1,26 @@
+<h1>Listing upload_pics</h1>
+
+<table>
+  <tr>
+    <th>Imagename</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @upload_pics.each do |upload_pic| %>
+ 
+  <tr>
+    <td><%= upload_pic.imagename %></td>
+    <td><%= link_to 'Show', upload_pic %></td>
+  <% if current_user%>
+    <td><%= link_to 'Edit', edit_upload_pic_path(upload_pic) %></td>
+    <td><%= link_to 'Destroy', upload_pic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+ <% end%>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Upload pic', new_upload_pic_path %>
