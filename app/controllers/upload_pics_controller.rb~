@@ -13,7 +13,8 @@ class UploadPicsController < ApplicationController
 
 def dashboard
 
-   @upload_pics = UploadPic.all
+   #@upload_pics = UploadPic.all
+   @upload_pics = UploadPic.where("is_private = false")
    respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @upload_pics }
