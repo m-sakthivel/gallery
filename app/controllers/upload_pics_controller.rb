@@ -15,6 +15,7 @@ def dashboard
 
    #@upload_pics = UploadPic.all
    @upload_pics = UploadPic.where(:is_private => false)
+
    respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @upload_pics }
@@ -37,7 +38,8 @@ end
   # GET /upload_pics/new.json
   def new
     @upload_pic = UploadPic.new
-
+    @countries = Admin::Country.all
+    p @countries
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @upload_pic }

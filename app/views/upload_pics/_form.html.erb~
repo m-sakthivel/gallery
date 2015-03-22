@@ -16,6 +16,16 @@
     <%= f.text_field :imagename %>
   </div>
 
+  <div class="field">
+    <%= f.label :country_name %><br />
+    <%= f.collection_select(:country_name, @countries, :id, :country_name, {:prompt => true})%>
+  </div>
+
+  <div class="field">
+    <%= f.label :state_name %><br />
+    <%= f.collection_select(:state_name, {:prompt => true})%>
+  </div>
+
  <div class="field">
     <%= f.label :avatar %><br />
     <%= f.file_field :avatar %>
@@ -23,7 +33,7 @@
 
 <div class="field">
     <%= f.label :is_private %><br />
-    <%= f.checkbox :is_private %>
+    <%= f.check_box :is_private %>
   </div>
  
   <div class="actions">

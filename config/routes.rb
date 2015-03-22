@@ -1,4 +1,17 @@
 Gallery::Application.routes.draw do
+  namespace :admin do
+    resources :countries
+  end
+
+
+  namespace :admin do
+    resources :states
+  end
+
+
+  resources :admins
+
+
   devise_for :users
 
   resources :upload_pics do

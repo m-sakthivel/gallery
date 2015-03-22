@@ -11,7 +11,27 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150117085146) do
+ActiveRecord::Schema.define(:version => 20150322121442) do
+
+  create_table "admin_countries", :force => true do |t|
+    t.string   "country_name"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  create_table "admin_states", :force => true do |t|
+    t.integer  "country_id"
+    t.string   "state_name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "admins", :force => true do |t|
+    t.string   "country"
+    t.string   "country_name"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
 
   create_table "upload_pics", :force => true do |t|
     t.string   "imagename"
@@ -23,6 +43,8 @@ ActiveRecord::Schema.define(:version => 20150117085146) do
     t.datetime "avatar_updated_at"
     t.integer  "user_id"
     t.boolean  "is_private"
+    t.string   "country_name"
+    t.string   "state_name"
   end
 
   create_table "users", :force => true do |t|

@@ -1,19 +1,40 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
   <title>Gallery</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-<% if user_signed_in? %>
+<div class="navbar navbar-inverse">
+  <div class="navbar-inner">
+    <a class="brand" href="#">Title</a>
+    <ul class="nav">
+      <li class="active"><a href="#">Home</a></li>
+      <li><a href="#">Link</a></li>
+      <li><a href="#">Link</a></li>
+    </ul>
+	<div style= "float:right">
+	<% if user_signed_in? %>
 <%= link_to "sign out", destroy_user_session_path, :method => :delete%>
 <%else%>
 <%= link_to "sign in", new_user_session_path%>
 <%end%>
+  </div>
+     
+	
+     </div>
+</div>
 
+<div class ="container">
+ <div class="row">
+   <div class="span9">
 <%= yield %>
-
+</div>
+<div class="span3"> hiiiiiii </div>
+</div>
 </body>
 </html>
